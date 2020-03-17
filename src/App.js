@@ -26,7 +26,7 @@ class App extends React.Component {
           <button>Search</button>
         </form>
         <ul>
-          <li>result <button>PD</button></li>
+          <li>result</li>
         </ul>
       </div>
     );
