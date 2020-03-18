@@ -5,8 +5,7 @@ import logo from "./logo.svg";
 class App extends React.Component {
 
   state = {
-    search: "",
-    spaces: []
+    search: ""
   }
 
   componentDidMount() {
