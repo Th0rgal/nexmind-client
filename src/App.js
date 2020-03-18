@@ -9,9 +9,20 @@ class App extends React.Component {
     spaces: []
   }
 
+  componentDidMount() {
+    console.log("test");
+    fetch('https://api.spacexdata.com/v3/launches/latest') //to replace by our backend
+      .then(res => res.json())
+      .then((data) => {
+        this.setState({ contacts: data })
+        console.log(data)
+      })
+      .catch(console.log);
+  }
+
   handleChange = (event) => {
     const new_search = event.currentTarget.value;
-    this.setState({ search: new_search})
+    this.setState({ search: new_search })
 
     if (new_search.endsWith(" ")) {
       console.log("test");
