@@ -5,11 +5,18 @@ import logo from "./logo.svg";
 class App extends React.Component {
 
   state = {
-    search: ""
+    search: "",
+    spaces: []
   }
 
   handleChange = (event) => {
-    this.setState({ search: event.currentTarget.value })
+    const new_search = event.currentTarget.value;
+    this.setState({ search: new_search})
+
+    if (new_search.endsWith(" ")) {
+      console.log("test");
+    }
+
   }
 
   handleSubmit = (event) => {
