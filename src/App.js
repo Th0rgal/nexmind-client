@@ -31,7 +31,8 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.search);
+    search = this.state.search;
+    console.log(search);
   }
 
   render() {
