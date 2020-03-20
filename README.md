@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://nexmind.space"><img src="https://img.shields.io/website?down_color=lightgrey&down_message=offline&style=flat-square&up_color=green&up_message=online&url=https%3A%2F%2Fnexmind.space%2F" alt="website"></a>
-  <a href="https://github.com/nexmind-space/nexmind-client"><img src="https://img.shields.io/website?label=project&style=flat-square&up_color=blue&up_message=node&url=https%3A%2F%2Fgithub.com%2Fnexmind-space%2Fnexmind-node"></a>
+  <a href="https://github.com/nexmind-space/nexmind-node"><img src="https://img.shields.io/website?label=backend&style=flat-square&up_color=blue&up_message=nexmind-node&url=https%3A%2F%2Fgithub.com%2Fnexmind-space%2Fnexmind-node"></a>
   <a href="https://lgtm.com/projects/g/nexmind-space/nexmind-client/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/g/nexmind-space/nexmind-client.svg?logo=lgtm&style=flat-square"></a>
 </p>
 
