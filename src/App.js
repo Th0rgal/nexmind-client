@@ -13,7 +13,6 @@ class App extends React.Component {
     fetch('https://api.spacexdata.com/v3/launches/latest') //to replace by our backend
       .then(res => res.json())
       .then((data) => {
-        this.setState({ contacts: data })
         console.log(data)
       })
       .catch(console.log);
