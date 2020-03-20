@@ -1,68 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  <br>
+  <img src="https://nexmind.space/logo.svg" alt="Nexmind" width="256">
+  <br>
+</h1>
 
-## Available Scripts
+<h4 align="center">📚 Your private search engine, dedicated to <u>your</u> knowledge</h4>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="https://nexmind.space"><img src="https://img.shields.io/website?down_color=lightgrey&down_message=offline&style=flat-square&up_color=green&up_message=online&url=https%3A%2F%2Fnexmind.space%2F" alt="website"></a>
+  <a href="https://github.com/nexmind-space/nexmind-client"><img src="https://img.shields.io/website?label=project&style=flat-square&up_color=blue&up_message=node&url=https%3A%2F%2Fgithub.com%2Fnexmind-space%2Fnexmind-node"></a>
+  <a href="https://lgtm.com/projects/g/nexmind-space/nexmind-client/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/g/nexmind-space/nexmind-client.svg?logo=lgtm&style=flat-square"></a>
+</p>
 
-### `npm start`
+## What is nexmind for?
+Have you ever searched a file for hours to never find it? Have you ever googled something like a quotation from an author you know, about a theme you know ...but which you were unable to find despite a long search?
+We've been through this, and like you we hated it, so we looked for a solution but nothing satisfied us, that's why we decided to work on nexmind.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How does it work?
+Imagine a search engine that is able to search through all the data you have come across: a kind of file manager adapted to humans, not machines. To add a file you would just have to drag and drop it, specifying which spaces it belongs to and press enter. A space is a bit like a folder except that different folders can then contain the same file.
+So now with nexmind if you're looking for the powerpoint of your math presentation, well you won't have to search in your lessons folder then math folder to finally realize after 10 minutes that you've left it in your documents folder: you haven't finished typing "powerpoint math presentation" that nexmind found it!
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## I meant how does it **really** work?
+When you add a file to nexmind, the file is hashed in a unique identifier called the "hash". The file is moved inside nexmind storage and renamed with its all new identifier. The spaces you defined are then registered to a database and associated with that hash. When you type a space list, a query is performed in order to find the corresponding files.
