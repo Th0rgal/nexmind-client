@@ -10,7 +10,7 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log("test");
-    fetch('https://api.spacexdata.com/v3/launches/latest') //to replace by our backend
+    fetch('127.0.0.1')
       .then(res => res.json())
       .then((data) => {
         console.log(data)
