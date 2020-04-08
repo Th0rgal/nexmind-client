@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import logo from "./logo.svg";
 
+import { sendRequest } from './Requests'
+
 class App extends React.Component {
 
   state = {
@@ -23,28 +25,12 @@ class App extends React.Component {
   handleLogin = (event) => {
     event.preventDefault();
 
-
     var details = {
       'username': this.state.username,
       'password': this.state.password
     };
 
-    var formBody = [];
-    for (var property in details) {
-      var encodedKey = encodeURIComponent(property);
-      var encodedValue = encodeURIComponent(details[property]);
-      formBody.push(encodedKey + "=" + encodedValue);
-    }
-    formBody = formBody.join("&");
-
-    fetch(this.state.node_address + "login", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: formBody
-    })
-      .then(response => response.json())
+    sendRequest(this.state.node_address + "login", details).then(response => response.json())
       .then(response => console.log(response));
 
     this.setState({ connected: true });
