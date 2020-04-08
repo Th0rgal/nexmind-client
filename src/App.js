@@ -40,6 +40,7 @@ class App extends React.Component {
 
   handleLogin = (event) => {
     event.preventDefault();
+    console.log("test");
 
     // verify URL
     const request_manager = new RequestsManager(
@@ -108,7 +109,7 @@ class App extends React.Component {
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
         </div>
         <div>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">Sign In</button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Sign In</button>
         </div>
       </form>
     </div>
@@ -116,7 +117,7 @@ class App extends React.Component {
 
   getConnectedPage = () => (
     <div>
-      <form onSubmit={this.handleSearchSubmi} >
+      <form onSubmit={this.handleSearchSubmit} >
         <input value={this.state.search} name="search" onChange={this.handleChange} type="text" placeholder="example" />
         <button>Search</button>
       </form>
@@ -128,8 +129,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div class="max-w-full">
-        <img src={process.env.PUBLIC_URL + '/logo.svg'} class="w-48 md:w-64 lg:w-96" alt="logo" />
+      <div className="App">
+        <img src={process.env.PUBLIC_URL + '/logo.svg'} className="w-48 md:w-64 lg:w-96" alt="logo" />
         {this.getContent()}
       </div>
     );
