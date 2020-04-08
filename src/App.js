@@ -6,20 +6,11 @@ class App extends React.Component {
 
   state = {
     search: "",
-    node_adress: "",
+    node_address: "",
     username: "",
     password: "",
     connected: false
   }
-
-  /* How to perform an api query:
-      fetch('127.0.0.1')
-        .then(res => res.json())
-        .then((data) => {
-          console.log(data)
-        })
-        .catch(console.log);
-    */
 
   /*
     Logic (handle forms update, submit and determine the page to display)
@@ -31,8 +22,33 @@ class App extends React.Component {
 
   handleLogin = (event) => {
     event.preventDefault();
+
+
+    var details = {
+      'username': this.state.username,
+      'password': this.state.password
+    };
+
+    var formBody = [];
+    for (var property in details) {
+      var encodedKey = encodeURIComponent(property);
+      var encodedValue = encodeURIComponent(details[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+
+    fetch(this.state.node_address + "login", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: formBody
+    })
+      .then(response => response.json())
+      .then(response => console.log(response));
+
     this.setState({ connected: true });
-    console.log("connecté: " + this.state.connected);
+    //console.log("connecté: " + this.state.connected);
   }
 
   handleSearchSubmit = (event) => {
@@ -56,7 +72,7 @@ class App extends React.Component {
 
   getLoginPage = () => (
     <form onSubmit={this.handleLogin} >
-      <input value={this.state.node_adress} name="node_adress" onChange={this.handleChange} type="text" placeholder="localhost" />
+      <input value={this.state.node_address} name="node_address" onChange={this.handleChange} type="text" placeholder="localhost" />
       <input value={this.state.username} name="username" onChange={this.handleChange} type="text" placeholder="username" />
       <input value={this.state.password} name="password" onChange={this.handleChange} type="text" placeholder="password" />
       <button>Login</button>
