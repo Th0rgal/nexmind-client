@@ -36,6 +36,10 @@ class App extends React.Component {
 
   handleLogin = (event) => {
     event.preventDefault();
+    //verify node address
+    if (!this.state.node_address.endsWith("/"))
+      this.setState({ node_address: this.state.node_address + "/" });
+    //todo: check connection
 
     var details = {
       'username': this.state.username,
