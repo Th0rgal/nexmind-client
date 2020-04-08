@@ -83,7 +83,7 @@ class App extends React.Component {
     <form onSubmit={this.handleLogin} >
       <input value={this.state.node_address} onChange={this.handleUrlChange} type="text" placeholder="localhost" />
       <input value={this.state.username} name="username" onChange={this.handleChange} type="text" placeholder="username" />
-      <input value={this.state.password} name="password" onChange={this.handleChange} type="text" placeholder="password" />
+      <input value={this.state.password} name="password" onChange={this.handleChange} type="password" placeholder="password" />
       <button>Login</button>
     </form>
   )
