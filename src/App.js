@@ -90,9 +90,18 @@ class App extends React.Component {
 
   getLoginPage = () => (
     <form onSubmit={this.handleLogin} >
-      <input value={this.state.node_address} onChange={this.handleUrlChange} type="text" placeholder="localhost" />
-      <input value={this.state.username} name="username" onChange={this.handleChange} type="text" placeholder="username" />
-      <input value={this.state.password} name="password" onChange={this.handleChange} type="password" placeholder="password" />
+      <label>
+        Node address
+        <input value={this.state.node_address} onChange={this.handleUrlChange} type="text" placeholder="localhost" />
+      </label>
+      <label>
+        Username
+        <input value={this.state.username} name="username" onChange={this.handleChange} type="text" placeholder="username" />
+      </label>
+      <label>
+        Password
+        <input value={this.state.password} name="password" onChange={this.handleChange} type="password" placeholder="password" />
+      </label>
       <button>Login</button>
     </form>
   )
