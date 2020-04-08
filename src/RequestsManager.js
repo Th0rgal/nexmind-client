@@ -29,4 +29,4 @@ class RequestsManager {
 
 }
 
-export { RequestsManager };
+export default RequestsManager;

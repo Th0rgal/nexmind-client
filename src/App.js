@@ -3,7 +3,7 @@ import './App.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { RequestsManager } from './RequestsManager'
+import RequestsManager from './RequestsManager'
 
 toast.configure()
 
