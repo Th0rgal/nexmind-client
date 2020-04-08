@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -83,27 +82,36 @@ class App extends React.Component {
       return this.getLoginPage()
   }
 
-
   /*
     Page rendering (login form + connected display)
   */
 
   getLoginPage = () => (
-    <form onSubmit={this.handleLogin} >
-      <label>
-        Node address
-        <input value={this.state.node_address} onChange={this.handleUrlChange} type="text" placeholder="localhost" />
-      </label>
-      <label>
-        Username
-        <input value={this.state.username} name="username" onChange={this.handleChange} type="text" placeholder="username" />
-      </label>
-      <label>
-        Password
-        <input value={this.state.password} name="password" onChange={this.handleChange} type="password" placeholder="password" />
-      </label>
-      <button>Login</button>
-    </form>
+    <div className="justify-center w-full max-w-md bg-gray-800" >
+      <form onSubmit={this.handleLogin} className="bg-white shadow-md rounded px-8 py-8 pt-8" >
+
+        <div className="px-4 pb-4">
+          <label htmlFor="node_address" className="text-sm block font-bold  pb-2">Node address</label>
+          <input name="node_address" value={this.state.node_address} onChange={this.handleUrlChange} type="text" placeholder="localhost"
+            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
+        </div>
+
+        <div className="px-4 pb-4">
+          <label htmlFor="username" className="text-sm block font-bold  pb-2">Username</label>
+          <input name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="username"
+            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
+        </div>
+
+        <div className="px-4 pb-4">
+          <label htmlFor="password" className="text-sm block font-bold pb-2">Password</label>
+          <input name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="password"
+            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
+        </div>
+        <div>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">Sign In</button>
+        </div>
+      </form>
+    </div>
   )
 
   getConnectedPage = () => (
@@ -120,8 +128,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <img src={process.env.PUBLIC_URL + '/logo.svg'} className="App-logo" alt="logo" />
+      <div class="max-w-full">
+        <img src={process.env.PUBLIC_URL + '/logo.svg'} class="w-48 md:w-64 lg:w-96" alt="logo" />
         {this.getContent()}
       </div>
     );
