@@ -88,7 +88,7 @@ class App extends React.Component {
   */
 
   getLoginPage = () => (
-    <div className="justify-center w-full max-w-md bg-gray-800" >
+    <div className="mx-auto max-w-md" >
       <form onSubmit={this.handleLogin} className="bg-white shadow-md rounded px-8 py-8 pt-8" >
 
         <div className="px-4 pb-4">
@@ -130,7 +130,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <img src={process.env.PUBLIC_URL + '/logo.svg'} className="w-48 md:w-64 lg:w-96" alt="logo" />
+        <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mx-auto w-64" alt="logo" />
         {this.getContent()}
       </div>
     );
