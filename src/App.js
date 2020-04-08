@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import logo from "./logo.svg";
 
-import { sendRequest } from './Requests'
+import { RequestsManager } from './RequestsManager'
 
 class App extends React.Component {
 
@@ -11,7 +11,9 @@ class App extends React.Component {
     node_address: "",
     username: "",
     password: "",
-    connected: false
+    connected: false,
+
+    request_manager: null
   }
 
   /*
@@ -26,7 +28,7 @@ class App extends React.Component {
     var newURL = event.currentTarget.value;
     const prefix = "http://";
 
-    if (prefix.startsWith(newURL) && prefix != newURL)
+    if (prefix.startsWith(newURL) && prefix !== newURL)
       newURL = prefix;
     else if (!newURL.startsWith(prefix))
       newURL = prefix + newURL;
@@ -36,21 +38,21 @@ class App extends React.Component {
 
   handleLogin = (event) => {
     event.preventDefault();
-    //verify node address
-    if (!this.state.node_address.endsWith("/"))
-      this.setState({ node_address: this.state.node_address + "/" });
-    //todo: check connection
 
-    var details = {
-      'username': this.state.username,
-      'password': this.state.password
-    };
+    // verify URL
+    const request_manager = new RequestsManager(
+      this.state.node_address.endsWith("/")
+        ? this.state.node_address
+        : this.state.node_address + "/"
+    );
 
-    sendRequest(this.state.node_address + "login", details).then(response => response.json())
+    request_manager.sendLogin(this.state.username, this.state.password)
+      .then(response => response.json())
       .then(response => console.log(response));
 
     this.setState({ connected: true });
     //console.log("connecté: " + this.state.connected);
+    this.setState({ request_manager: request_manager });
   }
 
   handleSearchSubmit = (event) => {
