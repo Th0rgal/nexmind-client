@@ -49,9 +49,9 @@ class App extends React.Component {
     request_manager.sendLogin(this.state.username, this.state.password)
       .then(response => response.json())
       .then(response => {
-        if ("token" in response) {
+        if ("token" in response)
           this.setState({ connected: true });
-        } else if ("error" in response) {
+        else if ("error" in response) {
           console.log(response["error"])
         }
       });
