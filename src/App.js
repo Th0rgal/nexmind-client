@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import logo from "./logo.svg";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -113,7 +112,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={process.env.PUBLIC_URL + '/logo.svg'} className="App-logo" alt="logo" />
         {this.getContent()}
       </div>
     );
