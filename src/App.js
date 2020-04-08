@@ -1,8 +1,12 @@
 import React from 'react';
 import './App.css';
 import logo from "./logo.svg";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { RequestsManager } from './RequestsManager'
+
+toast.configure()
 
 class App extends React.Component {
 
@@ -49,12 +53,18 @@ class App extends React.Component {
     request_manager.sendLogin(this.state.username, this.state.password)
       .then(response => response.json())
       .then(response => {
+
         if ("token" in response)
           this.setState({ connected: true });
-        else if ("error" in response) {
-          console.log(response["error"])
-        }
-      });
+
+        else if ("error" in response)
+          toast(response["error"], { type: toast.TYPE.ERROR });
+
+        else
+          toast("Uhandled exception", { type: toast.TYPE.ERROR });
+      })
+
+      .catch(() => toast("Failed to reach node", { type: toast.TYPE.ERROR }));
 
     //console.log("connecté: " + this.state.connected);
     this.setState({ request_manager: request_manager });
