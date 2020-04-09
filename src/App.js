@@ -41,7 +41,6 @@ class App extends React.Component {
 
   handleLogin = (event) => {
     event.preventDefault();
-    console.log("test");
 
     // verify URL
     const request_manager = new RequestsManager(
@@ -75,7 +74,7 @@ class App extends React.Component {
 
     this.state.request_manager.sendSearch(this.state.search)
       .then(response => response.json())
-      .then(response => this.setState({ results: response }))
+      .then(response => this.setState({ results: response["results"] }))
       .catch(() => toast("Failed to perform search", { type: toast.TYPE.ERROR }));
   }
 
@@ -128,7 +127,28 @@ class App extends React.Component {
       </form>
 
       <div>
+        {this.getResults()}
+      </div>
+    </div>
+  )
 
+  getResults = () => (
+    Object.keys(this.state.results).map(hash =>
+      this.getResultDisplay(hash, this.state.results[hash])
+    )
+  )
+
+  getResultDisplay = (hash, resultDetails) => (
+    <div key={hash} className="max-w-sm rounded overflow-hidden shadow-lg">
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{resultDetails["name"]}</div>
+        <p className="text-gray-700 text-base">
+          {resultDetails["desc"]}
+        </p>
+      </div>
+      <div className="px-6 py-4">
+        {resultDetails["spaces"].map((space, index) =>
+          <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{"#" + space}</span>)}
       </div>
     </div>
   )
