@@ -4,6 +4,16 @@ class RequestsManager {
         this.url = url;
     }
 
+    setToken(token) {
+        this.token = token
+    }
+
+    sendSearch(search) {
+        return this.sendRequest("search", {
+            'spaces': search
+        });
+    }
+
     sendLogin(username, password) {
         return this.sendRequest("login", {
             'username': username,
@@ -22,7 +32,10 @@ class RequestsManager {
         return fetch(this.url + route,
             {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    'Authorization': this.token
+                },
                 body: formBody
             })
     };

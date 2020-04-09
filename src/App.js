@@ -15,7 +15,8 @@ class App extends React.Component {
     password: "",
     connected: false,
 
-    request_manager: null
+    request_manager: null,
+    results: []
   }
 
   /*
@@ -53,10 +54,10 @@ class App extends React.Component {
       .then(response => response.json())
       .then(response => {
 
-        if ("token" in response)
+        if ("token" in response) {
           this.setState({ connected: true });
-
-        else if ("error" in response)
+          request_manager.setToken(response["token"]);
+        } else if ("error" in response)
           toast(response["error"], { type: toast.TYPE.ERROR });
 
         else
@@ -71,7 +72,12 @@ class App extends React.Component {
 
   handleSearchSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.search);
+
+    this.state.request_manager.sendSearch(this.state.search)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      });
   }
 
   getContent = () => {
@@ -121,9 +127,10 @@ class App extends React.Component {
         <input value={this.state.search} name="search" onChange={this.handleChange} type="text" placeholder="example" />
         <button>Search</button>
       </form>
-      <ul>
-        <li>result</li>
-      </ul>
+
+      <div>
+
+      </div>
     </div>
   )
 
