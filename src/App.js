@@ -16,7 +16,7 @@ class App extends React.Component {
     connected: false,
 
     request_manager: null,
-    results: []
+    results: {}
   }
 
   /*
@@ -75,9 +75,8 @@ class App extends React.Component {
 
     this.state.request_manager.sendSearch(this.state.search)
       .then(response => response.json())
-      .then(response => {
-        console.log(response);
-      });
+      .then(response => this.setState({ results: response }))
+      .catch(() => toast("Failed to perform search", { type: toast.TYPE.ERROR }));
   }
 
   getContent = () => {
