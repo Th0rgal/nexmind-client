@@ -108,8 +108,8 @@ class App extends React.Component {
           <input name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="password"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
         </div>
-        <div>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">Sign In</button>
+        <div className="p-4 px-4 pb-4">
+          <button className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >Sign In</button>
         </div>
       </form>
     </div>
