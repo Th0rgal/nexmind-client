@@ -98,13 +98,13 @@ class App extends React.Component {
         </div>
 
         <div className="px-4 pb-4">
-          <label htmlFor="username" className="text-sm block font-bold  pb-2">Username</label>
+          <label htmlFor="username" className="font-sans text-sm block font-bold text-gray-800 pb-2">Username</label>
           <input name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="username"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
         </div>
 
         <div className="px-4 pb-4">
-          <label htmlFor="password" className="text-sm block font-bold pb-2">Password</label>
+          <label htmlFor="password" className="font-sans text-sm block font-bold text-gray-800 pb-2">Password</label>
           <input name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="password"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
         </div>
@@ -129,7 +129,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App bg-gray-100 h-screen">
         <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mx-auto w-64" alt="logo" />
         {this.getContent()}
       </div>
