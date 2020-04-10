@@ -46,7 +46,6 @@ class LoginBox extends React.Component {
             .then(response => {
 
                 if ("token" in response) {
-                    this.setState({ connected: true });
                     request_manager.setToken(response["token"]);
                 } else if ("error" in response)
                     toast(response["error"], { type: toast.TYPE.ERROR });
