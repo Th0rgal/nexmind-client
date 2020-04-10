@@ -38,7 +38,7 @@ class SearchBox extends React.Component {
 
                 <div>
                     {Object.keys(this.state.results).map(
-                        hash => <ResultCard hash={hash} details={this.state.results[hash]} />)}
+                        hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>
             </div>
         )
