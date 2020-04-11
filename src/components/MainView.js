@@ -2,6 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { ReactComponent as SearchIcon } from "../icons/search.svg";
 import ResultCard from './ResultCard';
 
 class MainView extends React.Component {
@@ -30,17 +31,23 @@ class MainView extends React.Component {
 
     render() {
         return (
+
             <div>
-                <form onSubmit={this.handleSearchSubmit} >
-                    <input value={this.state.search} onChange={this.handleSearch} type="text" placeholder="example" />
-                    <button>Search</button>
-                </form>
+                <div class="relative text-gray-600">
+                    <form onSubmit={this.handleSearchSubmit} >
+                        <input value={this.state.search} onChange={this.handleSearch} type="search" name="serch" placeholder="Search" class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-full text-sm focus:outline-none" />
+                        <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                            <SearchIcon />
+                        </button>
+                    </form>
+                </div>
 
                 <div className="flex flex-wrap" >
                     {Object.keys(this.state.results).map(
                         hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>
             </div>
+
         )
     }
 }
