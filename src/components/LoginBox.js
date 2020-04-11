@@ -61,30 +61,33 @@ class LoginBox extends React.Component {
 
     render() {
         return (
-            <div className="mx-auto max-w-md" >
-                <form onSubmit={this.handleLogin} className="bg-white shadow-md rounded px-8 py-8" >
+            <div>
+                <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mx-auto w-64" alt="logo" />
+                <div className="mx-auto max-w-md" >
+                    <form onSubmit={this.handleLogin} className="bg-white shadow-md rounded px-8 py-8" >
 
-                    <div className="px-4 pb-4">
-                        <label htmlFor="node_address" className="font-sans text-sm block font-bold text-gray-800 pb-2">Node address</label>
-                        <input name="node_address" value={this.state.node_address} onChange={this.handleUrlChange} type="text" placeholder="localhost:8080"
-                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
-                    </div>
+                        <div className="px-4 pb-4">
+                            <label htmlFor="node_address" className="font-sans text-sm block font-bold text-gray-800 pb-2">Node address</label>
+                            <input name="node_address" value={this.state.node_address} onChange={this.handleUrlChange} type="text" placeholder="localhost:8080"
+                                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
+                        </div>
 
-                    <div className="px-4 pb-4">
-                        <label htmlFor="username" className="font-sans text-sm block font-bold text-gray-800 pb-2">Username</label>
-                        <input name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="username"
-                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
-                    </div>
+                        <div className="px-4 pb-4">
+                            <label htmlFor="username" className="font-sans text-sm block font-bold text-gray-800 pb-2">Username</label>
+                            <input name="username" value={this.state.username} onChange={this.handleChange} type="text" placeholder="username"
+                                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
+                        </div>
 
-                    <div className="px-4 pb-4">
-                        <label htmlFor="password" className="font-sans text-sm block font-bold text-gray-800 pb-2">Password</label>
-                        <input name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="password"
-                            className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
-                    </div>
-                    <div className="p-4 px-4 pb-4">
-                        <button className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >Sign In</button>
-                    </div>
-                </form>
+                        <div className="px-4 pb-4">
+                            <label htmlFor="password" className="font-sans text-sm block font-bold text-gray-800 pb-2">Password</label>
+                            <input name="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="password"
+                                className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
+                        </div>
+                        <div className="p-4 px-4 pb-4">
+                            <button className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >Sign In</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }

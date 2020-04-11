@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import LoginBox from './components/LoginBox';
-import SearchBox from './components/SearchBox';
+import MainView from './components/MainView';
 
 toast.configure()
 
@@ -19,10 +19,10 @@ class App extends React.Component {
     })
   }
 
-  getContent = () => {
+  getPage = () => {
     if (this.state.request_manager)
       /* searchbar + drag and drop (connected form)*/
-      return <SearchBox request_manager={this.state.request_manager} />
+      return <MainView request_manager={this.state.request_manager} />
     else
       /* login form*/
       return <LoginBox loginCallback={this.loginCallback} />
@@ -30,9 +30,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App bg-gray-100 h-screen">
-        <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mx-auto w-64" alt="logo" />
-        {this.getContent()}
+      <div className="h-screen bg-gray-100 flex content-center justify-center">
+        {this.getPage()}
       </div>
     );
   }
