@@ -36,7 +36,7 @@ class MainView extends React.Component {
                     <button>Search</button>
                 </form>
 
-                <div className="flex gap-4" >
+                <div className="flex flex-wrap" >
                     {Object.keys(this.state.results).map(
                         hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>
