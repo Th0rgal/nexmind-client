@@ -36,7 +36,7 @@ class SearchBox extends React.Component {
                     <button>Search</button>
                 </form>
 
-                <div>
+                <div className="flex gap-4" >
                     {Object.keys(this.state.results).map(
                         hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>

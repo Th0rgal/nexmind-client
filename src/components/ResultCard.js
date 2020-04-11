@@ -19,14 +19,14 @@ class ResultCard extends React.Component {
 
     render() {
         return (
-            <div className="max-w-sm rounded overflow-hidden shadow-lg">
+            <div className="flex-none w-64 rounded overflow-hidden shadow-lg">
 
-                <div className="bg-gray-900">
-                    <ImageIcon  className="w-full fill-current text-gray-700" />
+                <div className="flex bg-gray-900">
+                    <ImageIcon className="flex-none py-5 w-16 justify-center fill-current text-gray-700" />
+                    <div className="flex-none font-bold text-xl mb-2 text-gray-200">{this.state.name}</div>
                 </div>
 
                 <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">{this.state.name}</div>
                     <p className="text-gray-700 text-base">
                         {this.state.description}
                     </p>
