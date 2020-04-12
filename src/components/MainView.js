@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { ReactComponent as SearchIcon } from "../icons/search.svg";
 import ResultCard from './ResultCard';
+import AddCard from './AddData';
 
 class MainView extends React.Component {
 
@@ -43,6 +44,7 @@ class MainView extends React.Component {
                 </div>
 
                 <div className="flex flex-wrap" >
+                    <AddCard />
                     {Object.keys(this.state.results).map(
                         hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>
