@@ -33,10 +33,10 @@ class MainView extends React.Component {
         return (
 
             <div>
-                <div class="relative text-gray-600">
+                <div className="relative text-gray-600 flex content-center justify-center">
                     <form onSubmit={this.handleSearchSubmit} >
-                        <input value={this.state.search} onChange={this.handleSearch} type="search" name="serch" placeholder="Search" class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-full text-sm focus:outline-none" />
-                        <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                        <input value={this.state.search} onChange={this.handleSearch} type="search" name="serch" placeholder="Search" className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-full text-sm focus:outline-none" />
+                        <button type="submit" className="fixed right-0 top-0 mt-3 mr-4">
                             <SearchIcon />
                         </button>
                     </form>
