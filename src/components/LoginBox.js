@@ -47,16 +47,14 @@ class LoginBox extends React.Component {
 
                 if ("token" in response) {
                     request_manager.setToken(response["token"]);
+                    this.props.loginCallback(request_manager);
                 } else if ("error" in response)
                     toast(response["error"], { type: toast.TYPE.ERROR });
-
                 else
                     toast("Uhandled exception", { type: toast.TYPE.ERROR });
             })
 
             .catch(() => toast("Failed to reach node", { type: toast.TYPE.ERROR }));
-
-        this.props.loginCallback(request_manager);
     }
 
     render() {
