@@ -65,7 +65,7 @@ class LoginBox extends React.Component {
                 <form onSubmit={this.handleLogin} className="bg-white shadow-md rounded-lg px-8 py-8" >
 
                     <div className="px-4 pb-4">
-                        <label htmlFor="node_address" className="font-sans text-sm block font-bold text-gray-800 pb-2">Node address</label>
+                        <label htmlFor="node_address" className="font-sans font-bold text-sm block text-gray-800 pb-2">Node address</label>
                         <input name="node_address" value={this.state.node_address} onChange={this.handleUrlChange} type="text" placeholder="localhost:8080"
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
                     </div>

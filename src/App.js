@@ -30,7 +30,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="h-screen bg-gray-100" >
+      <div className="h-screen bg-gray-100 overflow-hidden" >
         {this.getPage()}
       </div>
     );

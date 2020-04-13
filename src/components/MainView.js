@@ -46,6 +46,7 @@ class MainView extends React.Component {
                         hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>
             </div>
+
         )
     }
 }
