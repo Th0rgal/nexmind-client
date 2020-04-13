@@ -59,9 +59,10 @@ class LoginBox extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="flex flex-col content-center items-center">
                 <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mx-auto w-64" alt="logo" />
-                <form onSubmit={this.handleLogin} className="bg-white shadow-md rounded px-8 py-8" >
+
+                <form onSubmit={this.handleLogin} className="bg-white shadow-md rounded-lg px-8 py-8" >
 
                     <div className="px-4 pb-4">
                         <label htmlFor="node_address" className="font-sans text-sm block font-bold text-gray-800 pb-2">Node address</label>

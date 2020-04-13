@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ReactComponent as AddIcon } from "../icons/plus.svg";
+import { ReactComponent as AddIllustration } from "../illustrations/add_file.svg";
 
 class AddCard extends React.Component {
 
@@ -8,10 +8,15 @@ class AddCard extends React.Component {
         super(props);
     }
 
+    handleClick = (event) => {
+        console.log("it works!")
+    }
+
     render() {
         return (
-            <div className="flex-none w-64 rounded-lg overflow-hidden shadow-lg bg-white">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"><AddIcon className="fill-current text-gray-400" /></span>
+            <div onClick={this.handleClick} className="flex flex-col cursor-pointer content-center items-center mx-4 my-4 flex-none w-64 rounded-lg overflow-hidden shadow-lg bg-white flex">
+               <AddIllustration className="my-4 flex text-gray-400 w-48 h-32 items-center" />
+               <p className="mx-4 my-4 text-gray-700 text-base text-center">Save a piece of data to your node and start enjoying it.</p>
             </div>
         )
     }

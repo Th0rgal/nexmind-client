@@ -32,9 +32,8 @@ class MainView extends React.Component {
 
     render() {
         return (
-
             <div>
-                <div className="relative max-w-3xl mx-auto px-6">
+                <div className="relative max-w-2xl mx-auto px-6 mt-16 mb-8">
                     <form onSubmit={this.handleSearchSubmit} >
                         <div className="absolute h-10 mt-1 left-0 top-0 flex items-center pl-10"><SearchIcon /></div>
                         <input id="search-toggle" onChange={this.handleSearch} type="search" placeholder="Enter categories to search in!" className="block border-2 border-gray-300 w-full bg-brand-white focus:outline-none focus:bg-white text-gray-700 font-bold rounded-full pl-12 pr-4 py-2" />
@@ -47,7 +46,6 @@ class MainView extends React.Component {
                         hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>
             </div>
-
         )
     }
 }
