@@ -224,7 +224,6 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Helvetica',
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
         '"Segoe UI"',
