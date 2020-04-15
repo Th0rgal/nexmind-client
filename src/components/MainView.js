@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ReactComponent as SearchIcon } from "../icons/search.svg";
 import ResultCard from './ResultCard';
 import AddCard from './AddData';
+import Dropzone from './Dropzone';
 
 class MainView extends React.Component {
 
@@ -39,6 +40,8 @@ class MainView extends React.Component {
                         <input id="search-toggle" onChange={this.handleSearch} type="search" placeholder="Enter categories to search in!" className="block border-2 border-gray-300 w-full bg-brand-white focus:outline-none focus:bg-white text-gray-700 font-bold rounded-full pl-12 pr-4 py-2" />
                     </form>
                 </div>
+
+                <Dropzone/>
 
                 <div className="flex flex-wrap" >
                     <AddCard />
