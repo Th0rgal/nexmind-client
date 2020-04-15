@@ -4,13 +4,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import LoginBox from './components/LoginBox';
 import MainView from './components/MainView';
+import AddDataForm from './components/AddDataForm';
 
 toast.configure()
 
 class App extends React.Component {
 
   state = {
-    request_manager: null,
+    request_manager: null
   }
 
   loginCallback = (request_manager) => {
@@ -30,7 +31,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="h-screen bg-gray-100 overflow-hidden" >
+      <div>
         {this.getPage()}
       </div>
     );

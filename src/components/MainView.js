@@ -4,8 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { ReactComponent as SearchIcon } from "../icons/search.svg";
 import ResultCard from './ResultCard';
-import AddCard from './AddData';
-import Dropzone from './Dropzone';
+import AddCard from './AddDataCard';
+import AddDataForm from './AddDataForm';
 
 class MainView extends React.Component {
 
@@ -14,12 +14,17 @@ class MainView extends React.Component {
 
         this.state = {
             search: "",
-            results: {}
+            results: {},
+            display_add_data: false
         }
     }
 
     handleSearch = (event) => {
         this.setState({ search: event.currentTarget.value })
+    }
+
+    dataCardClicked = () => {
+        this.setState({display_add_data: !this.state.display_add_data})
     }
 
     handleSearchSubmit = (event) => {
@@ -31,9 +36,15 @@ class MainView extends React.Component {
             .catch(() => toast("Failed to perform search", { type: toast.TYPE.ERROR }));
     }
 
+    displayAddDataModal = (event) => {
+        if (this.state.display_add_data)
+            return <AddDataForm />
+    }
+
     render() {
         return (
             <div>
+                {this.displayAddDataModal()}
                 <div className="relative max-w-2xl mx-auto px-6 mt-16 mb-8">
                     <form onSubmit={this.handleSearchSubmit} >
                         <div className="absolute h-10 mt-1 left-0 top-0 flex items-center pl-10"><SearchIcon /></div>
@@ -41,10 +52,8 @@ class MainView extends React.Component {
                     </form>
                 </div>
 
-                <Dropzone/>
-
                 <div className="flex flex-wrap" >
-                    <AddCard />
+                    <AddCard dataCardClicked={this.dataCardClicked} />
                     {Object.keys(this.state.results).map(
                         hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>
