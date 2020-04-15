@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import LoginBox from './components/LoginBox';
 import MainView from './components/MainView';
-import AddDataForm from './components/AddDataForm';
 
 toast.configure()
 

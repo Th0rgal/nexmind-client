@@ -24,7 +24,7 @@ class MainView extends React.Component {
     }
 
     dataCardClicked = () => {
-        this.setState({display_add_data: !this.state.display_add_data})
+        this.setState({ display_add_data: !this.state.display_add_data })
     }
 
     handleSearchSubmit = (event) => {
@@ -36,6 +36,11 @@ class MainView extends React.Component {
             .catch(() => toast("Failed to perform search", { type: toast.TYPE.ERROR }));
     }
 
+    handleClose = event => {
+        console.log(event.target)
+        console.log("name:" + event.target.name)
+    }
+
     displayAddDataModal = (event) => {
         if (this.state.display_add_data)
             return <AddDataForm />
@@ -43,8 +48,10 @@ class MainView extends React.Component {
 
     render() {
         return (
-            <div>
+            <div onClick={this.handleClose} >
+
                 {this.displayAddDataModal()}
+
                 <div className="relative max-w-2xl mx-auto px-6 mt-16 mb-8">
                     <form onSubmit={this.handleSearchSubmit} >
                         <div className="absolute h-10 mt-1 left-0 top-0 flex items-center pl-10"><SearchIcon /></div>

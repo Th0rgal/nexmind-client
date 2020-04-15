@@ -24,8 +24,8 @@ class AddCard extends React.Component {
     render() {
         return (
             <div onClick={this.handleClick} className="flex flex-col cursor-pointer content-center items-center mx-4 my-4 flex-none w-64 rounded-lg overflow-hidden shadow-lg bg-white flex">
-               <AddIllustration className="my-4 flex text-gray-400 w-48 h-32 items-center" />
-               <p className="mx-4 my-4 text-gray-700 text-base text-center">Save a piece of data to your node and start enjoying it.</p>
+                <AddIllustration className="my-4 flex text-gray-400 w-48 h-32 items-center" />
+                <p className="mx-4 my-4 text-gray-700 text-base text-center">Save a piece of data to your node and start enjoying it.</p>
             </div>
         )
     }
