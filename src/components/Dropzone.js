@@ -5,53 +5,55 @@ import { ReactComponent as UploadIcon } from "../icons/upload.svg";
 class Dropzone extends Component {
     constructor(props) {
         super(props)
-        this.state = { hightlight: false }
+        this.state = {
+            hightlight: false,
+            filename: "Drag a file or click to open"
+        }
         this.fileInputRef = React.createRef()
-
-        this.openFileDialog = this.openFileDialog.bind(this)
-        this.onFilesAdded = this.onFilesAdded.bind(this)
-        this.onDragOver = this.onDragOver.bind(this)
-        this.onDragLeave = this.onDragLeave.bind(this)
-        this.onDrop = this.onDrop.bind(this)
     }
 
-    openFileDialog() {
-        if (this.props.disabled) return
-        this.fileInputRef.current.click()
+    addFiles = (files) => {
+        var name = "";
+        for (var i = 0; i < files.length; i++) {
+            if (i >= 2) {
+                const others = (files.length - 1 - i)
+                name += " and " + others + " other file"
+                if (others > 1)
+                    name += "s"
+                break
+            }
+            name += " " + files[i].name
+        }
+        this.setState({ filename: name })
     }
 
-    onFilesAdded(evt) {
-        if (this.props.disabled) return
-        const files = evt.target.files
+    onFilesAdded = event => {
+        const files = event.target.files
+        this.addFiles(files)
         if (this.props.onFilesAdded) {
             const array = this.fileListToArray(files)
             this.props.onFilesAdded(array)
         }
     }
 
-    onDragOver(evt) {
-        evt.preventDefault()
-
-        if (this.props.disabled) return
-
+    onDragOver = event => {
+        event.preventDefault()
         this.setState({ hightlight: true })
     }
 
-    onDragLeave() {
+    onDragLeave = () => {
         this.setState({ hightlight: false })
     }
 
-    onDrop(event) {
+    onDrop = event => {
         event.preventDefault()
-
-        if (this.props.disabled) return
-
         const files = event.dataTransfer.files
         if (this.props.onFilesAdded) {
             const array = this.fileListToArray(files)
             this.props.onFilesAdded(array)
         }
         this.setState({ hightlight: false })
+        this.addFiles(files)
     }
 
     fileListToArray(list) {
@@ -65,12 +67,11 @@ class Dropzone extends Component {
     render() {
         return (
             <div
-                className={`flex flex-col bg-white w-64 h-64 border-2 border-gray-300 justify-center items-center ${this.state.hightlight ? 'bg-indigo-100' : ''}`}
+                className={`cursor-pointer flex flex-col bg-white w-64 h-64 border-2 border-gray-300 justify-center items-center ${this.state.hightlight ? 'bg-indigo-100' : ''}`}
                 onDragOver={this.onDragOver}
                 onDragLeave={this.onDragLeave}
                 onDrop={this.onDrop}
-                onClick={this.openFileDialog}
-                style={{ cursor: this.props.disabled ? 'default' : 'pointer' }}
+                onClick={() => (this.fileInputRef.current.click())}
             >
                 <input
                     ref={this.fileInputRef}
@@ -80,7 +81,7 @@ class Dropzone extends Component {
                     onChange={this.onFilesAdded}
                 />
                 <div className="w-64 h-64" ><UploadIcon /></div>
-                <span>Upload Files</span>
+                <span>{this.state.filename}</span>
             </div>
         )
     }
