@@ -2,6 +2,7 @@ import React from 'react';
 
 import Dropzone from './Dropzone.js';
 import Progress from './Progress.js'
+import sha256 from 'crypto-js/sha256';
 
 class AddDataForm extends React.Component {
 
@@ -26,8 +27,7 @@ class AddDataForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.uploadFile(this.state.file)
-        console.log("it works!")
+        this.uploadFile()
     }
 
     sendRequest() {
@@ -52,6 +52,16 @@ class AddDataForm extends React.Component {
 
     }
 
+    setFile = (file) => {
+        var reader = new FileReader();
+        reader.onload =  (event) => {
+            var checksum = sha256(file).toString();
+            console.log(checksum)
+            this.setState({ file: file, hash: checksum })
+        };
+        reader.readAsBinaryString(file);
+    }
+
     handleChange = (event) => {
         this.setState({ [event.currentTarget.name]: event.currentTarget.value })
     }
@@ -59,7 +69,7 @@ class AddDataForm extends React.Component {
     getForm = () => {
         return <React.Fragment>
             <div className="flex flex-col items-center">
-                <Dropzone onFilesAdded={(files_array) => this.setState({ file: files_array[0] })} />
+                <Dropzone onFilesAdded={(files_array) => this.setFile(files_array[0])} />
             </div>
             <form onSubmit={this.handleSubmit} >
 
