@@ -37,8 +37,7 @@ class MainView extends React.Component {
     }
 
     handleClose = event => {
-        console.log(event.target)
-        console.log("name:" + event.target.name)
+        console.log(event.target.id)
     }
 
     displayAddDataModal = (event) => {

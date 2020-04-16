@@ -26,7 +26,7 @@ class AddDataForm extends React.Component {
 
     render() {
         return (
-            <div name="smoke" className="animated fadeIn fixed z-50 pin overflow-auto bg-smoke-dark flex justify-center items-center inset-0">
+            <div id="smoke" className="animated fadeIn fixed z-50 pin overflow-auto bg-smoke-dark flex justify-center items-center inset-0">
                 <div className="animated fadeInUp fixed shadow-inner max-w-md md:relative pin-b pin-x align-top m-auto justify-end md:justify-center p-8 bg-white md:rounded w-full md:h-auto md:shadow flex flex-col">
                     <h2 className="text-4xl text-center font-hairline md:leading-loose text-grey md:mt-8 mb-4">Popup!</h2>
                     <p className="text-xl leading-normal mb-8 text-center">
