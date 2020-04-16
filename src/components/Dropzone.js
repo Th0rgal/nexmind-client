@@ -13,18 +13,14 @@ class Dropzone extends Component {
     }
 
     addFiles = (files) => {
-        var name = "";
-        for (var i = 0; i < files.length; i++) {
-            if (i >= 2) {
-                const others = (files.length - 1 - i)
-                name += " and " + others + " other file"
-                if (others > 1)
-                    name += "s"
-                break
-            }
-            name += " " + files[i].name
+        files = Array.from(files).map(f => f.name);
+        const and = files.splice(2).length;
+        let names = files.join(' ');
+        if (and > 0) {
+            names += ` and ${and} other file${and > 1 ? 's' : ''}`
         }
-        this.setState({ filename: name })
+
+        this.setState({ filename: names });
     }
 
     onFilesAdded = event => {

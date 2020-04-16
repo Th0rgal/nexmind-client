@@ -37,12 +37,13 @@ class MainView extends React.Component {
     }
 
     handleClose = event => {
-        console.log(event.target.id)
+        if (this.state.display_add_data && event.target.id === "smoke")
+            this.setState({ display_add_data: false })
     }
 
-    displayAddDataModal = (event) => {
+    displayAddDataModal = () => {
         if (this.state.display_add_data)
-            return <AddDataForm />
+            return <AddDataForm request_manager={this.props.request_manager} />
     }
 
     render() {

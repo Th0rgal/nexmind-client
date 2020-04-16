@@ -17,7 +17,7 @@ class AddCard extends React.Component {
         };
     }
 
-    handleClick = (event) => {
+    handleClick = () => {
         this.props.dataCardClicked();
     }
 

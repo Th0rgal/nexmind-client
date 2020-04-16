@@ -21,6 +21,28 @@ class RequestsManager {
         });
     }
 
+    sendUploadForm(name, type, description, hash, chunk, spaces, file) {
+        var data = new FormData();
+        data.append("name", name);
+        data.append("type", type);
+        data.append("desc", description);
+        data.append("hash", hash);
+        data.append("chunk", chunk);
+        data.append("spaces", spaces);
+        data.append("file", file);
+        return this.sendMultipartRequest("upload", data)
+    }
+
+    sendMultipartRequest(route, data) {
+        return fetch(this.url + route, {
+            method: "POST",
+            headers: {
+                'Authorization': this.token
+            },
+            body: data
+        })
+    }
+
     sendRequest(route, parameters) {
         let formBody = [];
         for (const property in parameters) {
