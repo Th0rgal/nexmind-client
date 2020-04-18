@@ -24,6 +24,7 @@ class ResultCard extends React.Component {
 
     handleClick = () => {
         console.log("it works!")
+        //todo: open download window
     }
 
 
