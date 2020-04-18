@@ -2,8 +2,8 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import LoginBox from './components/LoginBox';
-import MainView from './components/MainView';
+import LoginBox from './components/login/LoginBox';
+import MainView from './components/panel/MainView';
 
 toast.configure()
 
