@@ -23,8 +23,7 @@ class ResultCard extends React.Component {
     }
 
     handleClick = () => {
-        console.log("it works!")
-        //todo: open download window
+        this.props.cardClicked();
     }
 
 
@@ -51,7 +50,6 @@ class ResultCard extends React.Component {
     }
 
     getIcon = () => {
-        console.log(this.state.type);
         switch (this.state.type) {
 
             case 'image':

@@ -6,6 +6,7 @@ import { ReactComponent as SearchIcon } from "../../icons/search.svg";
 import ResultCard from './cards/ResultCard';
 import AddCard from './cards/AddDataCard';
 import AddDataForm from './forms/AddDataForm';
+import OpenDataForm from './forms/OpenDataForm';
 
 class MainView extends React.Component {
 
@@ -15,7 +16,8 @@ class MainView extends React.Component {
         this.state = {
             search: "",
             results: {},
-            display_add_data: false
+            display_add_data: false,
+            opened_data: null
         }
     }
 
@@ -23,7 +25,11 @@ class MainView extends React.Component {
         this.setState({ search: event.currentTarget.value })
     }
 
-    dataCardClicked = () => {
+    cardClicked = (hash) => {
+        this.setState({ opened_data: hash });
+    }
+
+    addDataCardClicked = () => {
         this.setState({ display_add_data: !this.state.display_add_data })
     }
 
@@ -37,8 +43,12 @@ class MainView extends React.Component {
     }
 
     handleClose = event => {
-        if (this.state.display_add_data && event.target.id === "smoke")
-            this.setState({ display_add_data: false })
+        if (event.target.id === "smoke") {
+            if (this.state.display_add_data)
+                this.setState({ display_add_data: false })
+            else if (this.state.opened_data)
+                this.setState({ opened_data: null })
+        }
     }
 
     displayAddDataModal = () => {
@@ -46,11 +56,17 @@ class MainView extends React.Component {
             return <AddDataForm request_manager={this.props.request_manager} />
     }
 
+    displayOpenedDataModal = () => {
+        if (this.state.opened_data)
+            return <OpenDataForm hash={this.state.opened_data} />
+    }
+
     render() {
         return (
             <div onClick={this.handleClose} >
 
                 {this.displayAddDataModal()}
+                {this.displayOpenedDataModal()}
 
                 <div className="relative max-w-2xl mx-auto px-6 mt-16 mb-8">
                     <form onSubmit={this.handleSearchSubmit} >
@@ -60,9 +76,9 @@ class MainView extends React.Component {
                 </div>
 
                 <div className="flex flex-wrap" >
-                    <AddCard dataCardClicked={this.dataCardClicked} />
+                    <AddCard cardClicked={this.addDataCardClicked} />
                     {Object.keys(this.state.results).map(
-                        hash => <ResultCard key={hash} hash={hash} details={this.state.results[hash]} />)}
+                        hash => <ResultCard cardClicked={() => this.cardClicked(hash)} key={hash} hash={hash} details={this.state.results[hash]} />)}
                 </div>
             </div>
 
