@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Dropzone from '../../Dropzone.js';
-import CryptoJS from 'crypto-js';
 import sha256 from 'crypto-js/sha256';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

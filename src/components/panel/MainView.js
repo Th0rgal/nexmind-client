@@ -75,7 +75,7 @@ class MainView extends React.Component {
                     </form>
                 </div>
 
-                <div className="flex flex-wrap" >
+                <div className="flex flex-wrap justify-center" >
                     <AddCard cardClicked={this.addDataCardClicked} />
                     {Object.keys(this.state.results).map(
                         hash => <ResultCard cardClicked={() => this.cardClicked(hash)} key={hash} hash={hash} details={this.state.results[hash]} />)}

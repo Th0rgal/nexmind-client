@@ -30,7 +30,7 @@ class ResultCard extends React.Component {
     getColors = () => {
         switch (this.state.type) {
             case 'image':
-                return "bg-purple-200 text-purple-600"
+                return "bg-purple-200 text-purple-500"
 
             case 'note':
                 return "bg-red-200 text-red-600"
@@ -53,30 +53,31 @@ class ResultCard extends React.Component {
         switch (this.state.type) {
 
             case 'image':
-                return <ImageIcon className="mt-1 w-8" />
+                return <ImageIcon className="mt-1 w-8 text-purple-500 fill-current" />
 
             case 'note':
-                return <NoteIcon className="mt-1 w-8" />
+                return <NoteIcon className="mt-1 w-8 text-red-600 fill-current" />
 
             case 'link':
-                return <LinkIcon className="mt-1 w-8" />
+                return <LinkIcon className="mt-1 w-8 text-blue-600 fill-current" />
 
             case 'document':
-                return <DocumentIcon className="mt-1 w-8" />
+                return <DocumentIcon className="mt-1 w-8 text-green-600 fill-current" />
 
             case 'presentation':
-                return <PresentationIcon className="mt-1 w-8" />
+                return <PresentationIcon className="mt-1 w-8 text-orange-600 fill-current" />
 
             default:
-                return <FileIcon className="mt-1 w-8" />
+                return <FileIcon className="mt-1 w-8 text-indigo-600 fill-current" />
         }
     }
+
 
     render() {
         return (
             <div className="flex-none w-64 rounded-lg overflow-hidden shadow-lg bg-white mx-4 my-4">
                 <div>
-                    <div onClick={this.handleClick} className={"cursor-pointer flex px-2 py-5 font-bold fill-current " + this.getColors()}>
+                    <div onClick={this.handleClick} className={"cursor-pointer flex px-2 py-5 font-bold " + this.getColors()}>
                         {this.getIcon()}
                         {this.state.name}
                     </div>
