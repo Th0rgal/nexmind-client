@@ -2,6 +2,7 @@ import React from 'react';
 
 import Dropzone from '../../Dropzone.js';
 import sha256 from 'crypto-js/sha256';
+import TypeCompleter from "./TypeCompleter.js";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -41,8 +42,10 @@ class AddDataForm extends React.Component {
                     toast("Uhandled exception", { type: toast.TYPE.ERROR });
             });
     }
-    
+
     setFile = (file) => {
+        if (file.name)
+            this.setState({ name: file.name, type: new TypeCompleter(file.name).getFileType() });
         var reader = new FileReader();
         reader.onload = () => {
             var checksum = sha256(reader.result).toString();
