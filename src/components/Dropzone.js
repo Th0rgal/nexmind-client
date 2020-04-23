@@ -63,7 +63,7 @@ class Dropzone extends Component {
     render() {
         return (
             <div
-                className={`cursor-pointer flex flex-col bg-white w-64 h-64 border-2 border-gray-300 justify-center items-center ${this.state.hightlight ? 'bg-indigo-100' : ''}`}
+                className={`rounded-lg cursor-pointer flex flex-col w-64 bg-white border-4 border-gray-300 border-dashed justify-center items-center ${this.state.hightlight ? 'bg-indigo-100' : ''}`}
                 onDragOver={this.onDragOver}
                 onDragLeave={this.onDragLeave}
                 onDrop={this.onDrop}
@@ -76,8 +76,8 @@ class Dropzone extends Component {
                     multiple
                     onChange={this.onFilesAdded}
                 />
-                <div className="w-64 h-64" ><UploadIcon /></div>
-                <span>{this.state.filename}</span>
+               <UploadIcon className="w-48 h-48 fill-current text-gray-300" />
+                <span className="text-gray-500" >{this.state.filename}</span>
             </div>
         )
     }
