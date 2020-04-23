@@ -4,19 +4,6 @@ import { ReactComponent as AddIllustration } from "../../../illustrations/add_fi
 
 class AddCard extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: "",
-            type: "",
-            description: "",
-            hash: "",
-            chunk: 0,
-            spaces: "",
-            file: null
-        };
-    }
-
     handleClick = () => {
         this.props.cardClicked();
     }

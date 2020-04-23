@@ -30,7 +30,8 @@ class MainView extends React.Component {
     }
 
     addDataCardClicked = () => {
-        this.setState({ display_add_data: !this.state.display_add_data })
+        const previous_state = this.state.display_add_data;
+        this.setState({ display_add_data: !previous_state })
     }
 
     handleSearchSubmit = (event) => {
@@ -78,7 +79,7 @@ class MainView extends React.Component {
                 <div className="flex flex-wrap justify-center" >
                     <AddCard cardClicked={this.addDataCardClicked} />
                     {Object.keys(this.state.results).map(
-                        hash => <ResultCard cardClicked={() => this.cardClicked(hash)} key={hash} hash={hash} details={this.state.results[hash]} />)}
+                        hash => <ResultCard cardClicked={() => this.cardClicked(hash)} key={hash} details={this.state.results[hash]} />)}
                 </div>
             </div>
 

@@ -13,7 +13,6 @@ class ResultCard extends React.Component {
         super(props);
 
         this.state = {
-            hash: props.hash,
             name: props.details["name"],
             type: props.details["type"],
             description: props.details["desc"],
