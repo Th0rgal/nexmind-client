@@ -58,7 +58,7 @@ class MainView extends React.Component {
 
     displayOpenedDataModal = () => {
         if (this.state.opened_data)
-            return <OpenDataForm hash={this.state.opened_data} />
+            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} />
     }
 
     render() {

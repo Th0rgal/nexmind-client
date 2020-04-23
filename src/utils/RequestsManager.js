@@ -21,6 +21,12 @@ class RequestsManager {
         });
     }
 
+    sendDownloadRequest(hash) {
+        return this.sendRequest("download", {
+            'hash': hash
+        });
+    }
+
     sendUploadForm(name, type, description, hash, chunk, spaces, file) {
         var data = new FormData();
         data.append("name", name);
