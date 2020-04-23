@@ -70,7 +70,7 @@ class AddDataForm extends React.Component {
 
                         <div className="px-4 pb-4">
                             <label htmlFor="name" className="font-sans font-bold block text-gray-800 pb-2">Name</label>
-                            <input name="name" value={this.state.name} onChange={this.handleChange} type="text" placeholder="An awesome image!"
+                            <input name="name" value={this.state.name} onChange={this.handleChange} type="text" placeholder="my-awesome-image.jpg"
                                 className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" />
                         </div>
 
