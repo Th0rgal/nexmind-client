@@ -5,7 +5,8 @@ import { ReactComponent as NoteIcon } from "../../../icons/annotation.svg";
 import { ReactComponent as LinkIcon } from "../../../icons/link.svg";
 import { ReactComponent as DocumentIcon } from "../../../icons/document.svg";
 import { ReactComponent as PresentationIcon } from "../../../icons/presentation.svg";
-import { ReactComponent as ArchiveIcon } from "../../../icons/archive.svg"
+import { ReactComponent as ArchiveIcon } from "../../../icons/archive.svg";
+import { ReactComponent as BinaryIcon } from "../../../icons/binary.svg";
 import { ReactComponent as FileIcon } from "../../../icons/file.svg";
 
 
@@ -48,6 +49,9 @@ class ResultCard extends React.Component {
             case 'archive':
                 return "bg-yellow-200 text-yellow-600"
 
+            case 'binary':
+                return "bg-teal-200 text-teal-600"
+
             default:
                 return "bg-indigo-200 text-indigo-600"
         }
@@ -73,6 +77,9 @@ class ResultCard extends React.Component {
 
             case 'archive':
                 return <ArchiveIcon className="mt-1 w-8 text-yellow-600 fill-current" />
+
+            case 'binary':
+                return <BinaryIcon className="mt-1 w-8 text-teal-600 fill-current" />
 
             default:
                 return <FileIcon className="mt-1 w-8 text-indigo-600 fill-current" />
