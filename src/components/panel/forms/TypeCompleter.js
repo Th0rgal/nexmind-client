@@ -21,6 +21,8 @@ class TypeCompleter {
             return "image";
         else if (["zip"].includes(extension))
             return "archive";
+        else if (["exe", "app"].includes(extension))
+            return "binary";
         else
             return "unknown";
     }
