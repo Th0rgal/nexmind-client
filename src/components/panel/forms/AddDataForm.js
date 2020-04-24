@@ -5,6 +5,8 @@ import sha256 from 'crypto-js/sha256';
 import TypeCompleter from "./TypeCompleter.js";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ReactComponent as CloseIcon } from "../../../icons/close.svg";
+
 
 class AddDataForm extends React.Component {
 
@@ -41,7 +43,7 @@ class AddDataForm extends React.Component {
                 else
                     toast("Uhandled exception", { type: toast.TYPE.ERROR });
             });
-            this.props.close();
+        this.props.close();
     }
 
     setFile = (file) => {
@@ -64,6 +66,8 @@ class AddDataForm extends React.Component {
         return (
             <div id="smoke" className="animated fadeIn fixed z-50 pin overflow-auto bg-smoke-dark flex justify-center inset-0">
                 <div className="animated fadeInUp fixed shadow-inner max-w-md md:relative pin-b pin-x align-top m-auto justify-end p-8 bg-white md:rounded w-full md:h-auto md:shadow flex flex-col">
+                    <CloseIcon className="flex text-gray-800 fill-current object-right-bottom" />
+
                     <div className="flex flex-col items-center m-2">
                         <Dropzone onFilesAdded={(files_array) => this.setFile(files_array[0])} />
                     </div>
