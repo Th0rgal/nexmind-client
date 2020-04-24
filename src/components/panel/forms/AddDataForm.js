@@ -41,6 +41,7 @@ class AddDataForm extends React.Component {
                 else
                     toast("Uhandled exception", { type: toast.TYPE.ERROR });
             });
+            this.props.close();
     }
 
     setFile = (file) => {

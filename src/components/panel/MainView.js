@@ -29,9 +29,12 @@ class MainView extends React.Component {
         this.setState({ opened_data: hash });
     }
 
+    closeWindow = () => {
+        this.setState({ display_add_data: false });
+    }
+
     addDataCardClicked = () => {
-        const previous_state = this.state.display_add_data;
-        this.setState({ display_add_data: !previous_state })
+        this.setState({ display_add_data: true })
     }
 
     handleSearchSubmit = (event) => {
@@ -54,7 +57,7 @@ class MainView extends React.Component {
 
     displayAddDataModal = () => {
         if (this.state.display_add_data)
-            return <AddDataForm request_manager={this.props.request_manager} />
+            return <AddDataForm request_manager={this.props.request_manager} close={this.closeWindow} />
     }
 
     displayOpenedDataModal = () => {
