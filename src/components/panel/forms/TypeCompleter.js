@@ -19,6 +19,8 @@ class TypeCompleter {
             return "presentation"
         else if (["png", "jpg", "jpeg", "gif", "svg", "ai", "psd", "tif", "raw", "bmp"].includes(extension))
             return "image";
+        else if (["zip"].includes(extension))
+            return "archive";
         else
             return "unknown";
     }
