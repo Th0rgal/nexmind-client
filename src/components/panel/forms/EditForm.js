@@ -10,11 +10,10 @@ class EditForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
-            type: "",
-            description: "",
-            hash: "",
-            spaces: ""
+            name: props.data["name"],
+            type: props.data["type"],
+            description: props.data["desc"],
+            spaces: props.data["spaces"],
         };
     }
 
