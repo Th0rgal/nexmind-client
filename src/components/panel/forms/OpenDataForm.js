@@ -31,12 +31,12 @@ class OpenDataForm extends React.Component {
 
                     <div className="p-4 px-4 pb-4">
                         <button onClick={this.onDownload} className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-lg text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >
-                            <span role="img" aria-label="opened book"><DownloadIcon/></span> Download</button>
+                            <span role="img" aria-label="opened book"><DownloadIcon className= "flex flex-col items-center"/></span> Download</button>
                     </div>
 
                     <div className="p-4 px-4 pb-4">
                         <button className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-lg text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >
-                            <span role="img" aria-label="pencil"><EditIcon/></span> Edit</button>
+                            <span role="img" aria-label="pencil"><EditIcon className= "flex flex-col items-center"/></span> Edit</button>
                     </div>
 
                     <div className="p-4 px-4 pb-4">
