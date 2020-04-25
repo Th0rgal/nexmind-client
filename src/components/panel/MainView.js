@@ -8,6 +8,7 @@ import AddCard from './cards/AddDataCard';
 import AddDataForm from './forms/AddDataForm';
 import OpenDataForm from './forms/OpenDataForm';
 import EditForm from './forms/EditForm';
+import DeleteForm from './forms/DeleteForm';
 
 class MainView extends React.Component {
 
@@ -20,6 +21,7 @@ class MainView extends React.Component {
             display_add_data: false,
             opened_data: null,
             edited_data: null,
+            deleted_data: null
         }
     }
 
@@ -51,6 +53,10 @@ class MainView extends React.Component {
         this.setState({opened_data: null})
     }
 
+    closeDelete = () => {
+        this.setState({deleted_data: null})
+    }
+
 
     handleSearchSubmit = (event) => {
         event.preventDefault();
@@ -67,6 +73,8 @@ class MainView extends React.Component {
                 this.setState({ display_add_data: false })
             else if (this.state.edited_data)
                 this.setState({edited_data: null})
+            else if (this.state.deleted_data)
+                this.setState({deleted_data: null})
             else if (this.state.opened_data)
                 this.setState({ opened_data: null })
         }
@@ -82,6 +90,8 @@ class MainView extends React.Component {
             return <EditForm request_manager={this.props.request_manager} data={this.state.results[this.state.opened_data]} close={this.closeEdited}/> 
         else if (this.state.opened_data)
             return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} close={this.closeModification}/>
+        else if (this.state.deleted_data)
+            return <DeleteForm request_manager={this.props.request_manager} hash={this.state.opened_data} close= {this.closeDelete}/>
     }
 
     render() {
