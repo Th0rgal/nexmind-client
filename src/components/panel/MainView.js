@@ -7,6 +7,7 @@ import ResultCard from './cards/ResultCard';
 import AddCard from './cards/AddDataCard';
 import AddDataForm from './forms/AddDataForm';
 import OpenDataForm from './forms/OpenDataForm';
+import EditForm from './forms/EditForm';
 
 class MainView extends React.Component {
 
@@ -17,7 +18,8 @@ class MainView extends React.Component {
             search: "",
             results: {},
             display_add_data: false,
-            opened_data: null
+            opened_data: null,
+            edited_data: null
         }
     }
 
@@ -36,6 +38,11 @@ class MainView extends React.Component {
     addDataCardClicked = () => {
         this.setState({ display_add_data: true })
     }
+
+    editClicked = (data_details) => {
+        this.setState({ edited_data: data_details })
+    }
+
 
     handleSearchSubmit = (event) => {
         event.preventDefault();
@@ -61,8 +68,10 @@ class MainView extends React.Component {
     }
 
     displayOpenedDataModal = () => {
-        if (this.state.opened_data)
-            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} />
+        if (this.state.edited_data)
+            return <EditForm request_manager={this.props.request_manager} /> //todo: return entire data: this.state.results[hash]
+        else if (this.state.opened_data)
+            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} />
     }
 
     render() {
@@ -75,7 +84,7 @@ class MainView extends React.Component {
                 <div className="relative max-w-2xl mx-auto px-6 mt-16 mb-8">
                     <form onSubmit={this.handleSearchSubmit} >
                         <div className="absolute h-10 mt-1 left-0 top-0 flex items-center pl-10"><SearchIcon /></div>
-                        <input id="search-toggle" onChange={this.handleSearch} type="search" placeholder="Enter categories to search in!" className="block border-2 border-gray-300 w-full bg-brand-white focus:outline-none focus:bg-white text-gray-700 font-bold rounded-full pl-12 pr-4 py-2" />
+                        <input id="search-toggle" onChange={this.handleSearch} type="search" placeholder="Enter categories to search in!" className="block border-2 border-gray-300 w-full bg-brand-white focus:outline-none focus:bg-white text-gray-700 font-medium rounded-full pl-12 pr-4 py-2" />
                     </form>
                 </div>
 

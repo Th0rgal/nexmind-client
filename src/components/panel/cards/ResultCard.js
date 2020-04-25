@@ -20,7 +20,6 @@ class ResultCard extends React.Component {
             type: props.details["type"],
             description: props.details["desc"],
             spaces: props.details["spaces"]
-
         }
     }
 

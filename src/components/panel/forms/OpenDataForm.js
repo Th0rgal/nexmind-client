@@ -35,7 +35,7 @@ class OpenDataForm extends React.Component {
                     </div>
 
                     <div className="p-4 px-4 pb-4">
-                        <button className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-lg text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >
+                        <button onClick={() => this.props.editClicked("test")} className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-lg text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >
                             <span role="img" aria-label="pencil"><EditIcon className= "fixed fill-current"/></span> Edit</button>
                     </div>
 

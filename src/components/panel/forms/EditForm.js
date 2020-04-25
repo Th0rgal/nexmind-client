@@ -1,7 +1,5 @@
 import React from 'react';
 
-import sha256 from 'crypto-js/sha256';
-import TypeCompleter from "./TypeCompleter.js";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ReactComponent as CloseIcon } from "../../../icons/close.svg";
@@ -16,45 +14,30 @@ class EditForm extends React.Component {
             type: "",
             description: "",
             hash: "",
-            chunk: 0,
-            spaces: "",
-            file: null
+            spaces: ""
         };
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
+        /*
         this.props.request_manager
-            .sendUploadForm(
+            .sendEditForm(
                 this.state.name,
                 this.state.type,
                 this.state.description,
                 this.state.hash,
-                this.state.chunk,
-                this.state.spaces,
-                this.state.file)
+                this.state.spaces)
             .then(response => response.json())
             .then((response) => {
                 if ("stored" in response) {
-                    toast(`${this.state.name} has been sucessfully stored. Size: ${(response["size"] / 2 ** 20).toFixed(2)}MiB`, { type: toast.TYPE.SUCCESS });
+                    toast(`${this.state.name} has been sucessfully edited.`, { type: toast.TYPE.SUCCESS });
                 } else if ("error" in response)
                     toast(response["error"], { type: toast.TYPE.ERROR });
                 else
                     toast("Uhandled exception", { type: toast.TYPE.ERROR });
-            });
+            });*/
         this.props.close();
-    }
-
-    setFile = (file) => {
-        if (file.name)
-            this.setState({ name: file.name, type: new TypeCompleter(file.name).getFileType() });
-        var reader = new FileReader();
-        reader.onload = () => {
-            var checksum = sha256(reader.result).toString();
-            console.log("generated sha256 checksum: " + checksum)
-            this.setState({ file: file, hash: checksum })
-        };
-        reader.readAsBinaryString(file);
     }
 
     handleChange = (event) => {
