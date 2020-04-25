@@ -43,6 +43,8 @@ class MainView extends React.Component {
         this.setState({ edited_data: data_details })
     }
 
+    
+
 
     handleSearchSubmit = (event) => {
         event.preventDefault();
@@ -57,6 +59,8 @@ class MainView extends React.Component {
         if (event.target.id === "smoke") {
             if (this.state.display_add_data)
                 this.setState({ display_add_data: false })
+            else if (this.state.edited_data)
+                this.setState({edited_data: null})
             else if (this.state.opened_data)
                 this.setState({ opened_data: null })
         }
@@ -69,7 +73,7 @@ class MainView extends React.Component {
 
     displayOpenedDataModal = () => {
         if (this.state.edited_data)
-            return <EditForm request_manager={this.props.request_manager} /> //todo: return entire data: this.state.results[hash]
+            return <EditForm request_manager={this.props.request_manager} data={"test"}/> //todo: return entire data: this.state.results[hash]
         else if (this.state.opened_data)
             return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} />
     }
