@@ -68,7 +68,7 @@ class AddDataForm extends React.Component {
                 <div className="animated fadeInUp fixed shadow-inner max-w-md md:relative pin-b pin-x align-top m-auto justify-end p-8 bg-white md:rounded w-full md:h-auto md:shadow flex flex-col">
 
                     <div className="flex flex-col items-center m-2">
-                        <CloseIcon onClick={this.props.close} className="bg-red-800 cursor-pointer text-gray-600 fill-current h-10 w-10 mr-0 absolute right-0" />
+                        <CloseIcon onClick={this.props.close} className="cursor-pointer text-gray-600 fill-current h-10 w-10 mr-2 mt-2 absolute right-0 absolute top-0" />
                         <Dropzone onFilesAdded={(files_array) => this.setFile(files_array[0])} />
                     </div>
                     <form onSubmit={this.handleSubmit} >

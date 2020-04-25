@@ -19,7 +19,7 @@ class MainView extends React.Component {
             results: {},
             display_add_data: false,
             opened_data: null,
-            edited_data: null
+            edited_data: null,
         }
     }
 
@@ -41,6 +41,14 @@ class MainView extends React.Component {
 
     editClicked = (data_details) => {
         this.setState({ edited_data: data_details })
+    }
+
+    closeEdited = () => {
+        this.setState({edited_data: null})
+    }
+
+    closeModification = () => {
+        this.setState({opened_data: null})
     }
 
 
@@ -71,9 +79,9 @@ class MainView extends React.Component {
 
     displayOpenedDataModal = () => {
         if (this.state.edited_data)
-            return <EditForm request_manager={this.props.request_manager} data={this.state.results[this.state.opened_data]}/> //todo: return entire data: 
+            return <EditForm request_manager={this.props.request_manager} data={this.state.results[this.state.opened_data]} close={this.closeEdited}/> 
         else if (this.state.opened_data)
-            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} />
+            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} close={this.closeModification}/>
     }
 
     render() {
