@@ -31,17 +31,17 @@ class OpenDataForm extends React.Component {
 
                     <div className="p-4 px-4 pb-4">
                         <button onClick={this.onDownload} className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-lg text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >
-                            <span role="img" aria-label="opened book"><DownloadIcon className= "flex flex-col items-center"/></span> Download</button>
+                            <span role="img" aria-label="opened book"><DownloadIcon className= "fixed fill-current"/></span> Download</button>
                     </div>
 
                     <div className="p-4 px-4 pb-4">
                         <button className="hover:bg-transparent bg-blue-500 hover:text-blue-700 text-lg text-white py-2 px-4 border hover:border-blue-500 hover:border-transparent rounded-full w-full" >
-                            <span role="img" aria-label="pencil"><EditIcon className= "flex flex-col items-center"/></span> Edit</button>
+                            <span role="img" aria-label="pencil"><EditIcon className= "fixed fill-current"/></span> Edit</button>
                     </div>
 
                     <div className="p-4 px-4 pb-4">
                         <button className="hover:bg-transparent bg-red-500 hover:text-red-700 text-lg text-white py-2 px-4 border hover:border-red-500 hover:border-transparent rounded-full w-full" >
-                            <span role="img" aria-label="red cross"><DeleteIcon/></span> Delete</button>
+                            <span role="img" aria-label="red cross"><DeleteIcon className= "fixed fill-current" /></span> Delete</button>
                     </div>
                 </div>
             </div >
