@@ -25,6 +25,10 @@ class MainView extends React.Component {
         }
     }
 
+    openDeleteModal = (hash) => {
+        this.setState({deleted_data: hash})
+    }
+
     handleSearch = (event) => {
         this.setState({ search: event.currentTarget.value })
     }
@@ -42,6 +46,7 @@ class MainView extends React.Component {
     }
 
     editClicked = (data_details) => {
+        console.log("test")
         this.setState({ edited_data: data_details })
     }
 
@@ -49,7 +54,7 @@ class MainView extends React.Component {
         this.setState({edited_data: null})
     }
 
-    closeModification = () => {
+    closeModification = () => { //associé à OpenDataForm.js 
         this.setState({opened_data: null})
     }
 
@@ -86,12 +91,12 @@ class MainView extends React.Component {
     }
 
     displayOpenedDataModal = () => {
-        if (this.state.edited_data)
+        if (this.state.deleted_data)
+            return <DeleteForm request_manager={this.props.request_manager} hash={this.state.opened_data} close= {this.closeDelete}/>
+        else if (this.state.edited_data)
             return <EditForm request_manager={this.props.request_manager} data={this.state.results[this.state.opened_data]} close={this.closeEdited}/> 
         else if (this.state.opened_data)
-            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} close={this.closeModification}/>
-        else if (this.state.deleted_data)
-            return <DeleteForm request_manager={this.props.request_manager} hash={this.state.opened_data} close= {this.closeDelete}/>
+            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} deleteClicked={() => this.setState({deleted_data: this.state.opened_data})} close={this.closeModification}/>
     }
 
     render() {

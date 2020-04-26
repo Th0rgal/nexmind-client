@@ -10,10 +10,7 @@ class DeleteForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: props.data["name"],
-            type: props.data["type"],
-            description: props.data["desc"],
-            spaces: props.data["spaces"],
+            hash: props.hash,
         };
     }
 
@@ -50,7 +47,7 @@ class DeleteForm extends React.Component {
                     <form onSubmit={this.handleSubmit} >
 
                         <div className="px-4 pb-4">
-                            <label htmlFor="name" className="font-sans font-bold block text-gray-800 pb-2">Confirm deletion</label>
+                            <label htmlFor="name" className="font-sans font-bold block text-gray-800 text-lg pb-2">Confirm deletion ?</label>
                             {/*className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"*/}
                         </div>
 
