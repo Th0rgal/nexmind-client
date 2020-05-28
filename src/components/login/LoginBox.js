@@ -23,10 +23,8 @@ class LoginBox extends React.Component {
         let newURL = event.currentTarget.value;
         const prefix = "http://";
 
-        if (prefix.startsWith(newURL) && prefix !== newURL)
-            newURL = prefix;
-        else if (!newURL.startsWith(prefix))
-            newURL = prefix + newURL;
+        if (newURL.includes("://"))
+            newURL = newURL.split("://")[1];
 
         this.setState({ node_address: newURL })
     }
@@ -36,10 +34,9 @@ class LoginBox extends React.Component {
         event.preventDefault();
 
         const request_manager = new RequestsManager(
-            this.state.node_address.endsWith("/")
+            "https://" + (this.state.node_address.endsWith("/")
                 ? this.state.node_address
-                : this.state.node_address + "/"
-        );
+                : this.state.node_address + "/"));
 
         request_manager.sendLogin(this.state.username, this.state.password)
             .then(response => response.json())
