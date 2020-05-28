@@ -9,7 +9,7 @@ class LoginBox extends React.Component {
         super(props);
 
         this.state = {
-            node_address: "",
+            node_address: "alpha.nexmind.space",
             username: "",
             password: ""
         }
