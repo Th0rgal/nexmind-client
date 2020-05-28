@@ -103,7 +103,7 @@ class ResultCard extends React.Component {
                 </div>
                 <div className="px-6 py-4">
                     {this.state.spaces.map((space, index) =>
-                        <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{"#" + space}</span>)}
+                        <span key={index} className="inline-block bg-gray-200 rounded-full mt-1 px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{"#" + space}</span>)}
                 </div>
             </div>
         )
