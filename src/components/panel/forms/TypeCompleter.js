@@ -10,7 +10,7 @@ class TypeCompleter {
     }
 
     getFileType = () => {
-        const extension = this.getExtension()[1];
+        const extension = this.getExtension()[1].toLowerCase();
         if (["txt", "md", "tex", "yaml", "toml", "json"].includes(extension))
             return "note";
         else if (["docx", "doc", "odt", "ott", "odm", "pdf"].includes(extension))
