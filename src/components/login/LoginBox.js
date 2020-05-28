@@ -21,7 +21,6 @@ class LoginBox extends React.Component {
 
     handleUrlChange = (event) => {
         let newURL = event.currentTarget.value;
-        const prefix = "http://";
 
         if (newURL.includes("://"))
             newURL = newURL.split("://")[1];
