@@ -1,0 +1,73 @@
+.content {
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.box {
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.field {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.label {
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Noto Color Emoji";
+    font-weight: 600;
+    display: block;
+    color: #2d3748;
+    padding-bottom: 0.5rem;
+}
+
+.input {
+    background-color: #edf2f7;
+    border-width: 2px;
+    border-color: #edf2f7;
+    border-radius: 0.25rem;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #4a5568;
+    line-height: 1.25;
+}
+
+.input:focus {
+    outline: 0;
+    background-color: #fff;
+    border-color: #4299e1;
+}
+
+.submit {
+    margin-top: 0.75rem;
+    background-color: #4299e1;
+    border-color: transparent;
+    color: #fff;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-width: 1px;
+    border-radius: 9999px;
+    width: 100%;
+}
+
+.submit:hover {
+    background-color: transparent;
+    color: #2b6cb0;
+    border-color: #4299e1;
+}

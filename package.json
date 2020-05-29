@@ -14,8 +14,7 @@
     "react-toastify": "^5.5.0"
   },
   "scripts": {
-    "build:style": "postcss src/styles/index.css -o src/styles/tailwind.css",
-    "start": "npm run build:style && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
