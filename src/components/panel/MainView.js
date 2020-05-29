@@ -10,6 +10,8 @@ import OpenDataForm from './forms/OpenDataForm';
 import EditForm from './forms/EditForm';
 import DeleteForm from './forms/DeleteForm';
 
+import styles from "../../styles/mainview.module.css"
+
 class MainView extends React.Component {
 
     constructor(props) {
@@ -26,7 +28,7 @@ class MainView extends React.Component {
     }
 
     openDeleteModal = (hash) => {
-        this.setState({deleted_data: hash})
+        this.setState({ deleted_data: hash })
     }
 
     handleSearch = (event) => {
@@ -51,15 +53,15 @@ class MainView extends React.Component {
     }
 
     closeEdited = () => {
-        this.setState({edited_data: null})
+        this.setState({ edited_data: null })
     }
 
     closeModification = () => { //associé à OpenDataForm.js 
-        this.setState({opened_data: null})
+        this.setState({ opened_data: null })
     }
 
     closeDelete = () => {
-        this.setState({deleted_data: null})
+        this.setState({ deleted_data: null })
     }
 
 
@@ -77,9 +79,9 @@ class MainView extends React.Component {
             if (this.state.display_add_data)
                 this.setState({ display_add_data: false })
             else if (this.state.edited_data)
-                this.setState({edited_data: null})
+                this.setState({ edited_data: null })
             else if (this.state.deleted_data)
-                this.setState({deleted_data: null})
+                this.setState({ deleted_data: null })
             else if (this.state.opened_data)
                 this.setState({ opened_data: null })
         }
@@ -92,11 +94,11 @@ class MainView extends React.Component {
 
     displayOpenedDataModal = () => {
         if (this.state.deleted_data)
-            return <DeleteForm request_manager={this.props.request_manager} hash={this.state.opened_data} close= {this.closeDelete}/>
+            return <DeleteForm request_manager={this.props.request_manager} hash={this.state.opened_data} close={this.closeDelete} />
         else if (this.state.edited_data)
-            return <EditForm request_manager={this.props.request_manager} data={this.state.results[this.state.opened_data]} close={this.closeEdited}/> 
+            return <EditForm request_manager={this.props.request_manager} data={this.state.results[this.state.opened_data]} close={this.closeEdited} />
         else if (this.state.opened_data)
-            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} deleteClicked={() => this.setState({deleted_data: this.state.opened_data})} close={this.closeModification}/>
+            return <OpenDataForm request_manager={this.props.request_manager} hash={this.state.opened_data} editClicked={this.editClicked} deleteClicked={() => this.setState({ deleted_data: this.state.opened_data })} close={this.closeModification} />
     }
 
     render() {
@@ -106,12 +108,10 @@ class MainView extends React.Component {
                 {this.displayAddDataModal()}
                 {this.displayOpenedDataModal()}
 
-                <div className="relative max-w-2xl mx-auto px-6 mt-16 mb-8">
-                    <form onSubmit={this.handleSearchSubmit} >
-                        <div className="absolute h-10 mt-1 left-0 top-0 flex items-center pl-10"><SearchIcon /></div>
-                        <input id="search-toggle" onChange={this.handleSearch} type="search" placeholder="Enter categories to search in!" className="block border-2 border-gray-300 w-full bg-brand-white focus:outline-none focus:bg-white text-gray-700 font-medium rounded-full pl-12 pr-4 py-2" />
-                    </form>
-                </div>
+                <form className="relative max-w-2xl mx-auto px-6 mt-16 mb-8" onSubmit={this.handleSearchSubmit} >
+                    <div className={styles.search}><SearchIcon /></div>
+                    <input id="search-toggle" onChange={this.handleSearch} type="search" placeholder="Enter categories to search in!" className="block border-2 border-gray-300 w-full focus:outline-none focus:bg-white text-gray-700 font-medium rounded-full pl-12 pr-4 py-2" />
+                </form>
 
                 <div className="flex flex-wrap justify-center" >
                     <AddCard cardClicked={this.addDataCardClicked} />

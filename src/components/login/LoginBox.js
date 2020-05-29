@@ -57,7 +57,7 @@ class LoginBox extends React.Component {
     render() {
         return (
             <div className={styles.content}>
-                <img src={process.env.PUBLIC_URL + '/logo.svg'} className="mx-auto w-64" alt="logo" />
+                <img src={process.env.PUBLIC_URL + '/logo.svg'} className= {styles.logo} alt="logo" />
 
                 <form onSubmit={this.handleLogin} className={styles.box} >
 
