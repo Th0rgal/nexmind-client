@@ -48,7 +48,6 @@ class MainView extends React.Component {
     }
 
     editClicked = (data_details) => {
-        console.log("test")
         this.setState({ edited_data: data_details })
     }
 
@@ -109,12 +108,12 @@ class MainView extends React.Component {
                 {this.displayOpenedDataModal()}
 
 
-                <form className={styles.searchbar} onSubmit={this.handleSearchSubmit} >
-                    <div className="absolute h-10 mt-1 left-0 top-0 flex items-center pl-10"><SearchIcon /></div>
-                    <input id="search-toggle" onChange={this.handleSearch} type="search" placeholder="Enter categories to search in!" className="block border-2 border-gray-300 w-full bg-brand-white focus:outline-none focus:bg-white text-gray-700 font-medium rounded-full pl-12 pr-4 py-2" />
+                <form className={styles.search} onSubmit={this.handleSearchSubmit} >
+                    <div className={styles.icon}><SearchIcon /></div>
+                    <input className={styles.searchbar} id="search-toggle" onChange={this.handleSearch} type="search" placeholder="Enter categories to search in!" />
                 </form>
 
-                <div className="flex flex-wrap justify-center" >
+                <div className={styles.results} >
                     <AddCard cardClicked={this.addDataCardClicked} />
                     {Object.keys(this.state.results).map(
                         hash => <ResultCard cardClicked={() => this.cardClicked(hash)} key={hash} details={this.state.results[hash]} />)}

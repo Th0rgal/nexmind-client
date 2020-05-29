@@ -1,4 +1,4 @@
-.searchbar {
+.search {
     position: relative;
     max-width: 42rem;
     margin-left: auto;
@@ -7,4 +7,40 @@
     padding-right: 1.5rem;
     margin-top: 4rem;
     margin-bottom: 2rem;
+}
+
+.icon {
+    position: absolute;
+    height: 2.5rem;
+    margin-top: 0.1rem;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 2.5rem;
+}
+
+.searchbar {
+    display: block;
+    border-width: 2px;
+    border-color: #e2e8f0;
+    width: 100%;
+    color: #4a5568;
+    font-weight: 500;
+    border-radius: 9999px;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.searchbar:focus {
+    outline: 0;
+    background-color: #fff;
+}
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
