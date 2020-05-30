@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { ReactComponent as UploadIcon } from "../icons/upload.svg";
+import styles from "../styles/dropzone.module.css"
 
 class Dropzone extends Component {
     constructor(props) {
@@ -63,7 +64,7 @@ class Dropzone extends Component {
     render() {
         return (
             <div
-                className={`rounded-lg cursor-pointer flex flex-col w-64 bg-white border-4 border-gray-300 border-dashed justify-center items-center ${this.state.hightlight ? 'bg-indigo-100' : ''}`}
+                className={this.state.hightlight ? styles.highlighted_dropzone : styles.dropzone}
                 onDragOver={this.onDragOver}
                 onDragLeave={this.onDragLeave}
                 onDrop={this.onDrop}
@@ -76,8 +77,8 @@ class Dropzone extends Component {
                     multiple
                     onChange={this.onFilesAdded}
                 />
-               <UploadIcon className="w-48 h-48 fill-current text-gray-300" />
-                <span className="text-gray-500" >{this.state.filename}</span>
+                <UploadIcon className={styles.icon} />
+                <span className={styles.filename} >{this.state.filename}</span>
             </div>
         )
     }
