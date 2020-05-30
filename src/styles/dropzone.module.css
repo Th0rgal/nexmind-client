@@ -1,0 +1,39 @@
+.dropzone {
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 16rem;
+    background-color: #fff;
+    border-width: 4px;
+    border-color: #e2e8f0;
+    border-style: dashed;
+    justify-content: center;
+    align-items: center;
+}
+
+.highlighted_dropzone {
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 16rem;
+    background-color: #fff;
+    border-width: 4px;
+    border-color: #e2e8f0;
+    border-style: dashed;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebf4ff;
+}
+
+.icon {
+    width: 12rem;
+    height: 12rem;
+    fill: currentColor;
+    color: #e2e8f0;
+}
+
+.filename {
+    color: #a0aec0;
+}
